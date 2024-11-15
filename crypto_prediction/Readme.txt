@@ -16,12 +16,13 @@ Requirements:
 - [TextBlob](https://textblob.readthedocs.io/) - For sentiment analysis
 - [Chart.js](https://www.chartjs.org/) - For rendering charts in the frontend
 
-For Reddit Api i have already added the secret key, client_id
+For Reddit Api I have already added the secret key, client_id
 
 Setup Instructions
 1. Clone the Repository
-git clone https://github.com/yourusername/crypto-forecasting.git
-cd crypto-forecasting
+git clone https://github.com/AshishRShetty2000/CrptoPriceForecasting.git
+
+cd .\CrptoPriceForecasting\crypto_prediction\
 
 2. Set Up a Virtual Environment (Recommended)
 
@@ -29,13 +30,14 @@ python -m venv venv
 
 3. Activate the environment
 On Windows
+
 .\venv\Scripts\activate
 
-Install npm node modules
+4.Install npm node modules:
 
 npm install
 
-4. Install the Required Python Packages
+5. Install the Required Python Packages
 
 Make sure you have all required libraries installed. You can install them using requirements.txt.
 
@@ -43,7 +45,7 @@ pip install -r requirements.txt
 
 pip install Flask praw textblob pandas
 
-5. Run the Flask Application
+6. Run the Flask Application
 
 Start the Flask server using the command below:
 
