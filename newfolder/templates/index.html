@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Sentiment and Price Impact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 20px;">
+        <h1 style="font-size: 24px; font-weight: bold;">Crypto Price and Reddit Sentiment Analysis</h1>
+        <button onclick="fetchData()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Show Prices</button>
+    </div>
+    <div style="width: 40%; margin: 0 auto; padding-top: 20px;">
+        <canvas id="cryptoChart"></canvas>
+    </div>
+
+    <script>
+        let cryptoChart = null;
+
+        async function fetchData() {
+            try {
+                const response = await fetch('/data');
+                const data = await response.json();
+
+                const dates = data.prices.dates.map(date => new Date(date));
+                const sentimentScores = data.sentiment.score;
+                const prices = data.prices.prices;
+
+                // console.log("Dates:", dates);
+                // console.log("Sentiment Scores:", sentimentScores);
+                // console.log("Prices:", prices);
+
+                if (dates.length !== prices.length || dates.length !== sentimentScores.length) {
+                    console.error("Data length mismatch");
+                    return;
+                }
+
+                if (cryptoChart) {
+                    cryptoChart.destroy();
+                }
+
+                const ctx = document.getElementById('cryptoChart').getContext('2d');
+                cryptoChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [
+                            {
+                                label: 'Reddit Sentiment',
+                                data: sentimentScores,
+                                borderColor: 'rgba(75, 192, 192, 1)',
+                                fill: false,
+                                yAxisID: 'y1'
+                            },
+                            {
+                                label: 'Crypto Price',
+                                data: prices,
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                fill: false,
+                                yAxisID: 'y2'
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            x: { 
+                                type: 'time', 
+                                time: { unit: 'day' },
+                                title: { display: true, text: 'Date' }
+                            },
+                            y1: {
+                                type: 'linear',
+                                position: 'left',
+                                title: { display: true, text: 'Sentiment Score' },
+                                min: -1,
+                                max: 1
+                            },
+                            y2: {
+                                type: 'linear',
+                                position: 'right',
+                                title: { display: true, text: 'Crypto Price' },
+                                min: 400,
+                                max: 600
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+    </script>
+</body>
+</html>
