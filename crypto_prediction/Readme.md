@@ -5,18 +5,18 @@ Frontend: A Flask-based web interface for data visualization.
 Backend: A Python backend that integrates with Reddit's API using PRAW to fetch and analyze sentiment data.
 
 Project Structure
-plaintext
-Copy code
+```
 root/
 |-- templates/         # HTML templates for the Flask app
 |-- static/            # Static files (CSS, JavaScript)
 |-- app.py             # Main Flask application file
 |-- requirements.txt   # Python dependencies
-
+```
 For Reddit Api I have already added the secret key, client_id
 
 Setup Instructions
 1. Clone the Repository
+   
 git clone https://github.com/AshishRShetty2000/CrptoPriceForecasting.git
 
 cd .\CrptoPriceForecasting\crypto_prediction\
