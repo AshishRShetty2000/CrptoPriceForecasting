@@ -3,6 +3,8 @@
 *.pt
 *.pkl
 *.ipynb
+*.pth
+*.keras
 venv/
 .env/
 *.log
