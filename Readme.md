@@ -12,7 +12,6 @@ root/
 |-- app.py             # Main Flask application file
 |-- requirements.txt   # Python dependencies
 ```
-For Reddit Api I have already added the secret key, client_id
 
 Setup Instructions
 1. Clone the Repository
