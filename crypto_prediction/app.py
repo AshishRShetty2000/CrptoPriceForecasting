@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 import os
 import pandas as pd
-from transformers import BertTokenizer
 import torch.nn as nn
 import numpy as np
 from keras.models import load_model
