@@ -1,4 +1,3 @@
-aext-assistant==4.0.15
 aext-core==4.0.15
 aext-panels==4.0.15
 aext-share-notebook==4.0.15
