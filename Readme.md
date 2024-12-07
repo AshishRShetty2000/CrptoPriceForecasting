@@ -45,7 +45,8 @@ npm install
 Make sure you have all required libraries installed. You can install them using requirements.txt.
 ```
 pip install -r requirements.txt
-
+```
+```
 pip install Flask praw textblob pandas
 ```
 6. Run the Flask Application
