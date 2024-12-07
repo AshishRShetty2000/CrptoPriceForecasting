@@ -1,0 +1,11 @@
+*.csv
+*.txt
+*.h5
+*.pt
+*.pkl
+*.ipynb
+venv/
+.env/
+*.log
+tests/
+docs/
